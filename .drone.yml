@@ -1,0 +1,14 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: build
+    image: maven:3-jdk-10
+    environment:
+      USERNAME:
+        from_secret: username
+      PASSWORD:
+        from_secret: password
+    commands:
+      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - mvn test -B
