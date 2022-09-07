@@ -16,6 +16,7 @@ public class BootApplication {
 
     @GetMapping("/hello")
     public String hello() {
+        System.out.println("===");
         return "ok";
     }
 
